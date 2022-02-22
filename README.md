@@ -1,2 +1,2 @@
 # yc-kub
-Yandex.Cloud Terraform example
+Yandex.Cloud Terraform kubernates example
