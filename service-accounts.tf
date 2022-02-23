@@ -3,8 +3,8 @@ resource "yandex_iam_service_account" "docker-registry" {
   description = "service account to use container registry"
 }
 
-resource "yandex_iam_service_account" "instance-editor" {
-  name        = "instance-editor"
+resource "yandex_iam_service_account" "instances-editor" {
+  name        = "instances-editor"
   description = "service account to manage VMs"
 }
 
@@ -14,11 +14,11 @@ resource "yandex_resourcemanager_folder_iam_binding" "editor" {
   role = "editor"
 
   members = [
-    "serviceAccount:${yandex_iam_service_account.instance-editor.id}"
+    "serviceAccount:${yandex_iam_service_account.instances-editor.id}",
   ]
 
   depends_on = [
-    yandex_iam_service_account.instance-editor
+    yandex_iam_service_account.instances-editor
   ]
 }
 
@@ -28,7 +28,7 @@ resource "yandex_resourcemanager_folder_iam_binding" "pusher" {
   role = "container-registry.images.puser"
 
   members = [
-    "serviceAccount:${yandex_iam_service_account.instance-editor.id}"
+    "serviceAccount:${yandex_iam_service_account.docker-registry.id}",
   ]
 
   depends_on = [

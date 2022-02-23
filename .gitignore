@@ -31,3 +31,5 @@ override.tf.json
 
 private.auto.tfvars
 .terraform.lock.*
+
+*.plan
