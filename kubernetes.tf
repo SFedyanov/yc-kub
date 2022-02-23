@@ -49,7 +49,7 @@ resource "yandex_kubernetes_node_group" "node-group-0" {
 
     resources {
       core_fraction = 20
-      memory        = 20
+      memory        = 2
       cores         = 2
     }
 

@@ -25,7 +25,7 @@ resource "yandex_resourcemanager_folder_iam_binding" "editor" {
 resource "yandex_resourcemanager_folder_iam_binding" "pusher" {
   folder_id = var.yc_folder_id
 
-  role = "container-registry.images.puser"
+  role = "container-registry.images.pusher"
 
   members = [
     "serviceAccount:${yandex_iam_service_account.docker-registry.id}",
